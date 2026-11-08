@@ -2,16 +2,16 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 
-const PasswordField = ({ label, name, value, onChange, placeholder }) => {
+const PasswordField = ({ label = "Password", name = "password", value, onChange, placeholder = "Enter password", required = true }) => {
   const [show, setShow] = useState(false);
 
   return (
     <div>
       <label
         htmlFor={name}
-        className="flex items-center gap-2 text-sm font-bold text-[#2b140c] mb-1.5"
+        className="flex items-center gap-1.5 text-xs font-bold text-[#2b140c] mb-1"
       >
-        <FaLock size={13} /> {label}
+        <FaLock size={11} /> {label}
       </label>
       <div className="relative">
         <input
@@ -21,8 +21,8 @@ const PasswordField = ({ label, name, value, onChange, placeholder }) => {
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          required
-          className="w-full h-12 rounded-xl border-2 border-[#f6dcd6] bg-white px-4 pr-11 text-sm outline-none focus:border-[#7a2e14] transition"
+          required={required}
+          className="w-full h-10 rounded-xl border border-[#f6dcd6] bg-white px-3 pr-10 text-xs outline-none focus:border-[#7a2e14] transition"
         />
         <button
           type="button"
@@ -30,7 +30,7 @@ const PasswordField = ({ label, name, value, onChange, placeholder }) => {
           onClick={() => setShow((p) => !p)}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#7a2e14]"
         >
-          {show ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
+          {show ? <FaEyeSlash size={14} /> : <FaEye size={14} />}
         </button>
       </div>
     </div>
